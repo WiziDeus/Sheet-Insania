@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+
+<input type="radio" name="attr_tab" class="sheet-tab1" value="1" checked="checked"><span title="Core Stats and Skills"></span>
+<input type="radio" name="attr_tab" class="sheet-tab2" value="2"><span title="Bag"></span>
+<input type="radio" name="attr_tab" class="sheet-tab3" value="3"><span title="Spellbook"></span>
+<input type="radio" name="attr_tab" class="sheet-tab4"value="4"><span title="Personal History"></span>
+
+<div class="sheet-tab-content sheet-tab1">
+<img src="https://cdn.discordapp.com/attachments/875780809288736845/935175961769562172/Personnage.png">
+<div class="sheet-2colrow">
+  
+   <div class="sheet-col" stle="margin-bottom: 10px;">
+<table <table style="width: 15%;">  
+    <tbody>
+        <tr>
+             <td>Nom</td>
+             <td><input type="text" name="attr_Name"/></td>
+        </tr>
+        <tr>
+        
+             <td>Race</td>
+             <td><input type="text" name="attr_Race"/></td>
+        </tr>
+        <tr>
+            <td>Genre</td>
+            <td><input type="text" name="attr_Gender"/><td></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="number" name="attr_Age"/></td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+
+</div>
+<img src="https://cdn.discordapp.com/attachments/875780809288736845/935175940001116170/Stats.png">
+<div class="sheet-3colrow" style="margin-bottom: 10px;">
+    <div class="sheet-col">
+    <table style="width: 15%;">
+    <tbody>
+    <tr>
+        <td>INT</td>
+        <td><input type="number" name="attr_INT"  value="floor((@{Lucidité}/4 + @{Négoce}/4 + @{Survie}/4 + @{Vigilence}/4))" disabled/></td>
+        <td><input type="number" name="attr_INTf"  value="@{INT} + @{INTb}" disabled = true/></td>
+    </tr>
+    <tr>
+        <td>REF</td>
+        <td><input type="number" name="attr_REF"  value="floor((@{Bagarre}/4 + @{Armes_C}/4 + @{Escrime}/4 + @{EP}/4))" disabled = true/></td>
+        <td><input type="number" name="attr_REFf"  value="@{REF}+@{REFb}" disabled = true/></td>
+    </tr>
+         <tr>
+         <td>DEX</td>
+         <td><input type="number" name="attr_DEX"  value="floor((@{Artillerie}/4 + @{Précision}/4 + @{Furtivité}/4 + @{EE}/4))" disabled = true/></td>
+         <td><input type="number" name="attr_DEXf"  value="@{DEX}+@{DEXb}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>COR</td>
+        <td><input type="number" name="attr_COR"  value="floor((@{AD}/4 + @{Résistance}/4 + @{Constitution}/4 + @{Athlétisme}/4))" disabled = true/></td>
+        <td><input type="number" name="attr_CORf"  value="@{COR}+@{CORb}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>SOC</td>
+        <td><input type="number" name="attr_SOC"  value="floor((@{Séduction}/4 + @{intimidation}/4 + @{Duperie}/4 + @{Volonté}/4))" disabled = true/></td>
+        <td><input type="number" name="attr_SOCf"  value="@{SOC}+@{SOCb}" disabled = true/></td>
+    </tr>
+         <tr>
+        <td>TEC</td>
+        <td><input type="number" name="attr_TEC"  value="floor((@{CC}/4 + @{MT}/4 + @{Pilotage}/4 + @{Médecine}/4))" disabled = true/></td>
+        <td><input type="number" name="attr_TECf"  value="@{TEC}+@{TECb}" disabled = true/></td>
+    </tbody>
+</table>
+</div>
+
+
+<div class="sheet-col">
+    <table style="width: 15%;">
+    <tbody>
+    <tr>
+        <td>VIT</td>
+        <td><input type="number" name="attr_VIT" value="floor((1 + @{DEX}/2 + @{COR}/2))" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>BOU</td>
+        <td><input type="number" name="attr_CurrentBOU"  value="0"/></td>
+        <td><input type="number" name="attr_BOU" value="@{BouclierB}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>HP</td>
+        <td><input type="number" name="attr_CurrentHP"  value="0"/></td>
+        <td><input type="number" name="attr_HP" value="1 + @{CORf}+@{REFf}+@{BioB}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>STA</td>
+        <td><input type="number" name="attr_CurrentSTA" value="0"/></td>
+        <td><input type="number" name="attr_STA" value="1 + @{INTf}+@{TECf}+@{StaB}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>ADR</td>
+        <td><input type="number" name="attr_CurrentADR" value="0"/></td>
+        <td><input type="number" name="attr_ADR" value="@{ADf}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>DET</td>
+        <td><input type="number" name="attr_CurrentDET" value="0"/></td>
+        <td><input type="number" name="attr_DET" value="@{SOCf}+@{INTF}" disabled = true/></td>
+    </tr>
+     <tr>
+        <td>CNS</td>
+        <td><input type="number" name="attr_CurrentCNS" value="0"/></td>
+        <td><input type="number" name="attr_CNS" value="@{INTf}+@{INTf}" disabled = true/></td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+
+<div class="sheet-col">
+        <table style="width: 15%;">
+                <td>Bouclier</td>
+                <td>
+                    <input type="number" name="attr_BouclierB"  value="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Encombrement</td>
+                <td>
+                    <input type="number" name="attr_EncombrementTotal" value="0"/>
+                </td>
+                <td>
+                </td>
+            </tr>
+             <tr>
+                <td>BioPoints Bonus</td>
+                <td>
+                    <input type="number" name="attr_BioB"  value="0">
+                </td>
+            </tr>
+             <tr>
+                <td>Stabilité Bonus</td>
+                <td>
+                    <input type="number" name="attr_StaB" value="0">
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <table>
+             <tr>
+                <td>Notes</td>
+                <td>
+                    <textarea name="attr_ArmorNotes" style="width:200px; height: 20px;"></textarea>
+                </td>
+            </tr>
+        </tbody>
+</table>
+</div>
+</div>
+
+<div class="sheet-3colrow" style="margin-bottom: 10px;">
+    <div class="sheet-col">
+        <table style="width: 15%;">
+           
+            <thead>
+                <tr>
+                    <th>Compétences d'Intelligence</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucidité</td>
+                        <td><input type="number" name="attr_Lucidité" value="0"></td>
+                        <td><input type="number" name="attr_Luciditéf" value="@{Lucidité} + @{Luciditéb}" disabled = true ><\td>
+                        <td><button type=roll name="roll_Lucidité" value="&{template:default} {{name=Lucidité}} {{Valeur=[[1d10! + @{Luciditéf} + @{INTf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Négoce</td>
+                        <td><input type="number" name="attr_Négoce" value="0"></td>
+                        <td><input type="number" name="attr_Négocef" value="@{Négoce} + @{Négoceb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Négoce" value="&{template:default} {{name=Négoce}} {{Valeur=[[1d10! + @{Négocef} + @{INTf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Survie</td>
+                        <td><input type="number" name="attr_Survie" value="0"></td>
+                        <td><input type="number" name="attr_Survief" value="@{Survie} + @{Survieb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Survie" value="&{template:default} {{name=Survie}} {{Valeur=[[1d10! + @{Survief} + @{INTf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Vigilence</td>
+                        <td><input type="number" name="attr_Vigilence" value="0"></td>
+                        <td><input type="number" name="attr_Vigilencef" value="@{Vigilence} + @{Vigilenceb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Vigilence" value="&{template:default} {{name=Vigilence}} {{Valeur=[[1d10! + @{Vigilencef} + @{INTf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+         </table>
+         <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences de Réflexe</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Bagarre</td>
+                        <td><input type="number" name="attr_Bagarre" value="0"></td>
+                        <td><input type="number" name="attr_Bagarref" value="@{Bagarre} + @{Bagarreb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Bagarre" value="&{template:default} {{name=Bagarre}} {{Valeur=[[1d10! + @{Bagarref} + @{REFf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    </tr>
+                        <td>Armes Contondantes</td>
+                        <td><input type="number" name="attr_Armes_C" value="0"></td>
+                        <td><input type="number" name="attr_Armes_Cf" value="@{Armes_C} + @{Armes_Cb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Armes_C" value="&{template:default} {{name=Armes Contondantes}} {{Valeur=[[1d10! + @{Armes_Cf} + @{REFf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Escrime</td>
+                        <td><input type="number" name="attr_Escrime" value="0"></td>
+                        <td><input type="number" name="attr_Escrimef" value="@{Escrime} + @{Escrimeb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Escrime" value="&{template:default} {{name=Escrime}} {{Valeur=[[1d10! + @{Escrimef} + @{REFf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Esquive/Parade</td>
+                        <td><input type="number" name="attr_EP" value="0"></td>
+                        <td><input type="number" name="attr_EPf" value="@{EP} + @{EPb}" disabled= true ></td>
+                        <td><button type=roll name="roll_EP" value="&{template:default} {{name=Esquive/Parade}} {{Valeur=[[1d10! + @{EPf} + @{REFf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+            </col>
+        </table>
+    </div>
+
+            
+<div class="sheet-col">
+        <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences de Dexterité</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                     <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Artillerie</td>
+                        <td><input type="number" name="attr_Artillerie" value="0"></td>
+                        <td><input type="number" name="attr_Artillerief" value="@{Artillerie} + @{Artillerieb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Artillerie" value="&{template:default} {{name=Artillerie}} {{Valeur=[[1d10! + @{Artillerief} + @{DEXf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                        <td>Précision</td>
+                        <td><input type="number" name="attr_Précision" value="0"></td>
+                        <td><input type="number" name="attr_Précisionf" value="@{Précision} + @{Précisionb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Précision" value="&{template:default} {{name=Précision}} {{Valeur=[[1d10! + @{Précisionf} + @{DEXf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Furtivité</td>
+                        <td><input type="number" name="attr_Furtivité" value="0"></td>
+                        <td><input type="number" name="attr_Furtivitéf" value="@{Furtivité} + @{Furtivitéb}" disabled= true ></td>
+                        <td><button type=roll name="roll_Furtivité" value="&{template:default} {{name=Furtivité}} {{Valeur=[[1d10! + @{Furtivitéf} + @{DEXf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Esquive/Evasion</td>
+                        <td><input type="number" name="attr_EE" value="0"></td>
+                        <td><input type="number" name="attr_EEf" value="@{EE} + @{EEb}" disabled = true><\td>
+                        <td><button type=roll name="roll_EE" value="&{template:default} {{name=Esquive/Evasion}} {{Valeur=[[1d10! + @{EEf}+@{DEXf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+             <table style="width: 15%;">
+              <tr>
+            <thead>
+                <tr>
+                    <th>Compétences de Corps</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Aura/DeadStar</td>
+                        <td><input type="number" name="attr_AD" value="0"></td>
+                        <td><input type="number" name="attr_ADf" value="@{AD} + @{ADb}" disabled = true><\td>
+                        <td><button type=roll name="roll_EE" value="&{template:default} {{name=Aura/DeadStar}} {{Valeur=[[1d10! + @{ADf}+@{CORf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                        <td>Résistance</td>
+                        <td><input type="number" name="attr_Résistance" value="0"></td>
+                        <td><input type="number" name="attr_Résistancef" value="@{Résistance} + @{Résistanceb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Résistance" value="&{template:default} {{name=Résistance}} {{Valeur=[[1d10! + @{Résistancef}+@{CORf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Constitution</td>
+                        <td><input type="number" name="attr_Constitution" value="0"></td>
+                        <td><input type="number" name="attr_Constitutionf" value="@{Constitution} + @{Constitutionb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Constitution" value="&{template:default} {{name=Constitution}} {{Valeur=[[1d10! + @{Constitutionf}+@{CORf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Athlétisme</td>
+                        <td><input type="number" name="attr_Athlétisme" value="0"></td>
+                        <td><input type="number" name="attr_Athlétismef" value="@{Athlétisme} + @{Athlétismeb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Athlétisme" value="&{template:default} {{name=Athlétisme}} {{Valeur=[[1d10! + @{Athlétismef}+@{CORf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                </tbody>
+            </col>
+         </div>
+    <div class="sheet-col">
+        <table style="width: 15%;">
+            <thead>
+                <tr>
+                       <th>Compétences Techniques</th>
+                       <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                     <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Chimie/Cuisine</td>
+                        <td><input type="number" name="attr_CC" value="0"></td>
+                        <td><input type="number" name="attr_CCf" value="@{CC} + @{CCb}" disabled = true><\td>
+                        <td><button type=roll name="roll_CC" value="&{template:default} {{name=Chimie/Cuisine}} {{Valeur=[[1d10! + @{CCf}+@TECf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    </tr>
+                        <td>Mécanique/Technologie</td>
+                        <td><input type="number" name="attr_MT" value="0"></td>
+                        <td><input type="number" name="attr_MTf" value="@{MT} + @{MTb}" disabled = true><\td>
+                        <td><button type=roll name="roll_MT" value="&{template:default} {{name=Mécanique/Technologie}} {{Valeur=[[1d10! + @{MTf}+@{TECf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Pilotage</td>
+                        <td><input type="number" name="attr_Pilotage" value="0"></td>
+                        <td><input type="number" name="attr_Pilotagef" value="@{Pilotage} + @{Pilotageb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Pilotage" value="&{template:default} {{name=Pilotage}} {{Valeur=[[1d10! + @{Pilotagef}+@{TACf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Médecine</td>
+                        <td><input type="number" name="attr_Médecine" value="0"></td>
+                        <td><input type="number" name="attr_Médecinef" value="@{Médecine} + @{Médecineb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Médecine" value="&{template:default} {{name=Médecine}} {{Valeur=[[1d10! + @{Médecinef}+@{TACf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                </tbody>
+        </table>
+        <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences Sociales</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Séduction</td>
+                        <td><input type="number" name="attr_Séduction" value="0"></td>
+                        <td><input type="number" name="attr_Séductionf" value="@{Séduction} + @{Séductionb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Séduction" value="&{template:default} {{name=Séduction}} {{Valeur=[[1d10! + @{Séductionf}+@{SOCf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                        <td>Intimidation</td>
+                        <td><input type="number" name="attr_intimidation" value="0"></td>
+                        <td><input type="number" name="attr_Intimidationf" value="@{Intimidation} + @{Intimidationb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Intimidation" value="&{template:default} {{name=Intimidation}} {{Valeur=[[1d10! + @{Intimidationf}+@{SOCf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Duperie</td>
+                        <td><input type="number" name="attr_Duperie" value="0"></td>
+                        <td><input type="number" name="attr_Duperief" value="@{Duperie} + @{Duperieb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Duperie" value="&{template:default} {{name=Duperie}} {{Valeur=[[1d10! + @{Duperief}+@{SOCf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+                    <tr>
+                        <td>Volonté</td>
+                        <td><input type="number" name="attr_Volonté" value="0"></td>
+                        <td><input type="number" name="attr_Volontéf" value="@{Volonté} + @{Volontéb}" disabled = true><\td>
+                        <td><button type=roll name="roll_Volonté" value="&{template:default} {{name=Volonté}} {{Valeur=[[1d10! + @{Volontéf}+@{SOCf} +?{modifier?|0}]]}}"></button></td>
+                    </tr>
+    <td>
+    Total Points <input type="number" name="attr_TotalPoint" value="@{Lucidité} + @{Négoce} + @{Survie} + @{Vigilence} + @{Bagarre} + @{Armes_C} + @{Escrime} + @{EP} + @{Artillerie} + @{Précision} + @{Furtivité} + @{EE} + @{AD} + @{Résistance} + @{Constitution} + @{Athlétisme} + @{CC} + @{MT} + @{Pilotage} + @{Médecine} + @{Séduction} + @{Intimidation} + @{Duperie} + @{Volonté}" disabled = true>
+    </td>
+                    <div class="sheet-col">
+        </table>
+    </div>
+</div> 
+</div>
+
+
+
+
+<div class="sheet-tab-content sheet-tab2">
+<img src="https://cdn.discordapp.com/attachments/875780809288736845/935175821755310130/Iventaire.png">
+      <table>
+        <thead align="center;">
+        </thead>
+        <tr>
+            <td>NOM</td>
+            <td>PDS</td>
+            <td>DMG</td>
+            <td>POR</td>
+            <td>EFT</td>
+            <td>MUN</td>
+            <td>MAX</td>
+        </tr>
+        <tr>
+            <td>
+               <input type="text" name="attr_WeaponName"/>
+            </td>
+            <td>
+                <input type="number" name="attr_weaponwa" />
+            </td>
+            <td>
+                <input type="text" name="attr_WeaponDM" style ="width:100px"/>
+            </td> 
+            <td>
+                <input type="text" name="attr_WeaponPOR" style="width:75px"/>
+            </td>
+            <td>
+                <input type="text" name="attr_WeaponEffect" style ="width:100px"/>
+            </td> 
+            <td>
+                  <input type="number" name="attr_Munition"/>
+            </td> 
+            <td>
+                  <input type="number" name="attr_MunitionMax">
+            </td>
+            <td><button type="roll" name="roll_Weapon" value="&{template:default} {{name=@{WeaponName}}} {{Dégâts=@{WeaponDM}}} {{Portée=@{WeaponPOR}}} {{Munition après Tir: [[@{Munition} -1]] / @{MunitionMax}}}"></td>
+        </table>
+        </tr>
+    </table>
+    <fieldset class="repeating_weapons">
+        <table style="margin-top:0px;">
+        <tr>
+            <td>
+               <input type="text" name="attr_WeaponName"/>
+            </td>
+            <td>
+                <input type="number" name="attr_weaponwa" />
+            </td>
+            <td>
+                <input type="text" name="attr_WeaponDM" style ="width:100px"/>
+            </td> 
+            <td>
+                <input type="text" name="attr_WeaponPOR" style="width:75px"/>
+            </td>
+            <td>
+                <input type="text" name="attr_WeaponEffect" style ="width:100px"/>
+            </td> 
+            <td>
+                  <input type="number" name="attr_Munition">
+            </td> 
+            <td>
+                  <input type="number" name="attr_MunitionMax"> 
+            </td>
+            <td><button type="roll" name="roll_Weapon" value="&{template:default} {{name=@{WeaponName}}} {{Valeur=@{WeaponDM}}} {{Portée=@{WeaponPOR}}} {{Munition après Tir : [[@{Munition} -1]] / @{MunitionMax}}}"></td>
+        </table>
+    </fieldset>
+    
+
+    <div class="sheet-col">
+    <table>
+        <tr>
+            <th>Encombrement</th>
+
+            <td><input type="number" name="attr_Current_Encumbrunce" style="width:75px" value="@{EncombrementTotal}" disabled = true/></td>
+            <td><input type="number" name="attr_Encumbrunce" style="width:75px" value="@{encumbrance_gear} + @{encumbrance_weapon}" readonly/></td>
+        </tr>
+            <tr>
+            <th>Drachmes </th>
+            <td><input type="number" name="attr_Drachmes" style="width:75px"/></td>
+            </tr>
+        </table>
+    </div>
+    <div class="sheet-colrow">
+     <table style="margin-bottom:0px;">
+         <thead>
+             <tr>
+                <th>Objets</th>
+           </tr>
+         </thead>
+         <tr>
+             <td>Nom</td>
+             <td>Notes</td>
+             <td>Qte</td>
+             <td>PDS</td>
+         </tr>
+         <tr>
+             <td><input type="text" name="attr_gearname"/></td>
+             <td><textarea name="attr_gearnotes" style="width:400px; height: 20px;"></textarea></td>
+             <td><input type="text" name="attr_gearnbr" style="width:75px;"/></td>
+             <td><input type="number" name="attr_gearweight" style="width:75px;"/></td>
+         </tr>
+     </table>
+     <fieldset class="repeating_gear">
+         <table style="margin-top:0px; margin-bottom:0px">
+             <tr>
+             <td><input type="text" name="attr_gearName"/></td>
+             <td><textarea name="attr_gearnotes"style="width:400px; height: 20px;"></textarea></td>
+             <td><input type="text" name="attr_gearnbr" style="width:75px;"/></td>
+             <td><input type="number" name="attr_gearweight" style="width:75px;"/>
+
+        </tr>
+        </table>
+    </fieldset>
+    </div> 
+</div>
+
+<div class="sheet-tab-content sheet-tab3">
+<img src="https://cdn.discordapp.com/attachments/875780809288736847/935866699830415390/Passif.png">
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td>Effet</td>
+                <td>RNG</td>
+                <td>DMG</td>
+                <td>CoolDown</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="attr_SISName"/></td>
+                <td><textarea name="attr_SISEffect" style="width:300px; height: 25px;"></textarea></td>
+                <td><input type="text" name="attr_SISRNG" style="width:75px;"/></td>
+                <td><input type="text" name="attr_SISDAM" style="width:75px;"/></td>
+                <td><input type="text" name="attr_SISDuration" style="width:75px;"/></td>
+                <td><button type="roll" name="roll_SISDAM" value="&{template:default} {{name=@{SISName}}} {{Valeur=@{SISDAM}}} {{Effet=@{SISEffect}}}"
+            </tr>
+        </table>
+        <fieldset class="repeating_Spells">
+            <table style="margin-top:0px; margin-bottom:0px;">
+            <tr>
+                <td><input type="text" name="attr_SISName"/></td>
+                <td><textarea name="attr_SISEffect" style="width:300px; height: 25px;"></textarea></td>
+                <td><input type="text" name="attr_SISRNG/"style="width:75px;"/></td>
+                <td><input type="text" name="attr_SISDAM" style="width:75px;"/></td>
+                <td><input type="text" name="attr_SISDuration" style="width:75px;"/></td>
+                <td><button type="roll" name="roll_SISDAM" value="&{template:default} {{name=@{SISName}}} {{Valeur=@{SISDAM}}} {{Effet=@{SISEffect}}}"
+            </tr>
+            </table>
+        </fieldset>
+
+<img src="https://cdn.discordapp.com/attachments/875780809288736845/935175720920027166/Capacite.png">
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td>Coût</td>
+                <td>Effet</td>
+                <td>RNG</td>
+                <td>DMG</td>
+                <td>CoolDown</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="attr_CAPName"/></td>
+                <td><input type="number" name="attr_CAPCost"/></td>
+                <td><textarea name="attr_CAPEffect" style="width:300px; height: 25px;"></textarea></td>
+                <td><input type="text" name="attr_CAPRNG" style="width:75px;"/></td>
+                <td><input type="text" name="attr_CAPDAM" style="width:75px;"/></td>
+                <td><input type="text" name="attr_CAPDuration" style="width:75px;"/></td>
+                <td><button type="roll" name="roll_CAPDAM" value="&{template:default} {{name=@{CAPName}}} {{Valeur=@{CAPDAM}}} {{Effet=@{CAPEffect}}} {{Portée=@{CAPRNG}}} {{Adrénaline=@{CAPCost}}}"
+            </tr>
+        </table>
+        <fieldset class="repeating_Spells">
+            <table style="margin-top:0px; margin-bottom:0px;">
+            <tr>
+                <td><input type="text" name="attr_CAPName"/></td>
+                <td><input type="number" name="attr_CAPCost"/></td>
+                <td><textarea name="attr_CAPEffect" style="width:300px; height: 25px;"></textarea></td>
+                <td><input type="text" name="attr_CAPRNG"style="width:75px;"/></td>
+                <td><input type="text" name="attr_CAPDAM" style="width:75px;"/></td>
+                <td><input type="text" name="attr_CAPDuration" style="width:75px;"/></td>
+                <td><button type="roll" name="roll_CAPDAM" value="&{template:default} {{name=@{CAPName}}} {{Valeur=@{CAPDAM}}} {{Effet=@{CAPEffect}}} {{Portée=@{CAPRNG}}} {{Adrénaline=@{CAPCost}}}"
+            </tr>
+            </table>
+        </fieldset>
+</div>
+
+<div class="sheet-tab-content sheet-tab4">
+<img src="https://cdn.discordapp.com/attachments/875780809288736845/935565513034182686/Modificateur.png">
+<div class="sheet-3colrow" style="margin-bottom: 10px;">
+    <div class="sheet-col">
+    <table style="width: 15%;">
+    <tbody>
+    <tr>
+        <td>INT</td>
+        <td><input type="number" name="attr_INTb"  value="0"/></td>
+    </tr>
+    <tr>
+        <td>REF</td>
+        <td><input type="number" name="attr_REFb"  value="0"/></td>
+    </tr>
+         <tr>
+         <td>DEX</td>
+         <td><input type="number" name="attr_DEXb"  value="0"/></td>
+    </tr>
+     <tr>
+        <td>COR</td>
+        <td><input type="number" name="attr_CORb"  value="0"/></td>
+    </tr>
+     <tr>
+        <td>SOC</td>
+        <td><input type="number" name="attr_SOCb"  value="0"/></td>
+    </tr>
+         <tr>
+        <td>TEC</td>
+        <td><input type="number" name="attr_TECb"  value="0"/></td>
+    </tbody>
+</table>
+</div>
+
+<div class="sheet-3colrow" style="margin-bottom: 10px;">
+    <div class="sheet-col">
+        <table style="width: 15%;">
+           
+            <thead>
+                <tr>
+                    <th>Compétences d'Intelligence</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucidité</td>
+                        <td><input type="number" name="attr_Luciditéb" value="0"></td>
+                    </tr>
+                        <td>Négoce</td>
+                        <td><input type="number" name="attr_Négoceb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Survie</td>
+                        <td><input type="number" name="attr_Survieb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Vigilence</td>
+                        <td><input type="number" name="attr_Vigilenceb" value="0"></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+         </table>
+         <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences de Réflexe</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Bagarre</td>
+                        <td><input type="number" name="attr_Bagarreb" value="0"></td>
+                    </tr>
+                        <td>Armes Contondantes</td>
+                        <td><input type="number" name="attr_Armes_Cb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Escrime</td>
+                        <td><input type="number" name="attr_Escrimeb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Esquive/Parade</td>
+                        <td><input type="number" name="attr_EPb" value="0"></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+            </col>
+        </table>
+    </div>
+
+            
+<div class="sheet-col">
+        <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences de Dexterité</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                     <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Artillerie</td>
+                        <td><input type="number" name="attr_Artillerieb" value="0"></td>
+                    </tr>
+                        <td>Précision</td>
+                        <td><input type="number" name="attr_Précisionb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Furtivité</td>
+                        <td><input type="number" name="attr_Furtivitéb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Esquive/Evasion</td>
+                        <td><input type="number" name="attr_EEb" value="0"></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+             <table style="width: 15%;">
+              <tr>
+            <thead>
+                <tr>
+                    <th>Compétences de Corps</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Aura/DeadStar</td>
+                        <td><input type="number" name="attr_ADb" value="0"></td>
+                    </tr>
+                        <td>Résistance</td>
+                        <td><input type="number" name="attr_Résistanceb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Constitution</td>
+                        <td><input type="number" name="attr_Constitutionb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Athlétisme</td>
+                        <td><input type="number" name="attr_Athlétismeb" value="0"></td>
+                    </tr>
+                    <tr>
+                </tbody>
+            </col>
+
+
+         </div>
+    <div class="sheet-col">
+        <table style="width: 15%;">
+            <thead>
+                <tr>
+                       <th>Compétences Techniques</th>
+                       <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                     <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Chimie/Cuisine</td>
+                        <td><input type="number" name="attr_CCb" value="0"></td>
+                    </tr>
+                        <td>Mécanique/Technologie</td>
+                        <td><input type="number" name="attr_MTb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Pilotage</td>
+                        <td><input type="number" name="attr_Pilotageb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Médecine</td>
+                        <td><input type="number" name="attr_Médecineb" value="0"></td>
+                    </tr>
+                </tbody>
+        </table>
+         <table style="width: 15%;">
+            <thead>
+                <tr>
+                    <th>Compétences Sociales</th>
+                    <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Séduction</td>
+                        <td><input type="number" name="attr_Séductionb" value="0"></td>
+                    </tr>
+                        <td>intimidation</td>
+                        <td><input type="number" name="attr_intimidationb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Duperie</td>
+                        <td><input type="number" name="attr_Duperieb" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Volonté</td>
+                        <td><input type="number" name="attr_Volontéb" value="0"></td>
+                    </tr>
+                    <div class="sheet-col">
+        </table>
+    </div>
+</div> 
+</div>
+
+
+
+<script type="text/worker"
+
+/* ===== PARAMETERS ==========
+destinations = the name of the attribute that stores the total quantity
+        can be a single attribute, or an array: ['total_cost', 'total_weight']
+        If more than one, the matching fields must be in the same order. 
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          destination and fields both can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+*/
+const repeatingSum = (destinations, section, fields) => {
+    if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+    if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+    getSectionIDs(`repeating_${section}`, idArray => {
+        const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+        getAttrs([...attrArray], v => {
+            const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+            const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+            const output = {};
+            destinations.forEach((destination, index) => {
+                output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+            });
+            setAttrs(output);
+        }); 
+    }); 
+};
+on('change:repeating_gear remove:repeating_gear', function() {
+	repeatingSum("encumbrance_gear","gear",["gearweight","gearnbr"]);
+});
+on('change:repeating_weapons:weaponwa remove:repeating_weapons ', function() {
+	repeatingSum("encumbrance_weapon","weapon","weaponwa");
+});
+
+</script>
