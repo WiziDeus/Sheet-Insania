@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -476,8 +476,10 @@
             <th>Encombrement</th>
 
             <td><input type="number" name="attr_Current_Encumbrunce" style="width:75px" value="@{EncombrementTotal}" disabled = true/></td>
-            <td><input type="number" name="attr_Encumbrunce" style="width:75px" value="@{encumbrance_gear} + @{encumbrance_weapon}" readonly/></td>
+            <td><input type="number" name="attr_Encumbrunce" style="width:75px" value="@{encumbrance_gear} + @{encumbrance_weapon}" disabled = true/></td>
         </tr>
+            <tr>Poid Armes  <input type="number" name="attr_encumbrance_gear" disabled = true></tr>
+            <tr>Poid Objets <input type="number" name="attr_encumbrance_weapon" disabled = true/></tr>
             <tr>
             <th>Drachmes </th>
             <td><input type="number" name="attr_Drachmes" style="width:75px"/></td>
@@ -507,7 +509,7 @@
      <fieldset class="repeating_gear">
          <table style="margin-top:0px; margin-bottom:0px">
              <tr>
-             <td><input type="text" name="attr_gearName"/></td>
+             <td><input type="text" name="attr_gearname"/></td>
              <td><textarea name="attr_gearnotes"style="width:400px; height: 20px;"></textarea></td>
              <td><input type="text" name="attr_gearnbr" style="width:75px;"/></td>
              <td><input type="number" name="attr_gearweight" style="width:75px;"/>
@@ -799,7 +801,7 @@
 
 
 
-<script type="text/worker"
+<script type="text/worker">
 
 /* ===== PARAMETERS ==========
 destinations = the name of the attribute that stores the total quantity
@@ -830,7 +832,7 @@ on('change:repeating_gear remove:repeating_gear', function() {
 	repeatingSum("encumbrance_gear","gear",["gearweight","gearnbr"]);
 });
 on('change:repeating_weapons:weaponwa remove:repeating_weapons ', function() {
-	repeatingSum("encumbrance_weapon","weapon","weaponwa");
+	repeatingSum("encumbrance_weapon","weapons","weaponwa");
 });
 
 </script>
