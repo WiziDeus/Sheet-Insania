@@ -88,7 +88,7 @@
     <tbody>
     <tr>
         <td>VIT</td>
-        <td><input type="number" name="attr_VIT" value="floor((1 + @{DEX}/2 + @{COR}/2))" disabled = true/></td>
+        <td><input type="number" name="attr_VIT" value="floor((3 + @{DEX}/2 + @{COR}/2))" disabled = true/></td>
     </tr>
      <tr>
         <td>BOU</td>
@@ -360,7 +360,7 @@
         <table style="width: 15%;">
             <thead>
                 <tr>
-                    <th>Compétences Sociales</th>
+                    <th style="margrin-top:-20px">Compétences Sociales </th>
                     <img src="https://cdn.discordapp.com/attachments/875780809536184353/875835838376865822/Insania.png">
                     <th>&nbsp;</th>
                 </tr>
@@ -389,9 +389,10 @@
                         <td><input type="number" name="attr_Volontéf" value="@{Volonté} + @{Volontéb}" disabled = true><\td>
                         <td><button type=roll name="roll_Volonté" value="&{template:default} {{name=Volonté}} {{Valeur=[[1d10! + @{Volontéf}+@{SOCf} +?{modifier?|0}]]}}"></button></td>
                     </tr>
-    <td>
-    Total Points <input type="number" name="attr_TotalPoint" value="@{Lucidité} + @{Négoce} + @{Survie} + @{Vigilence} + @{Bagarre} + @{Armes_C} + @{Escrime} + @{EP} + @{Artillerie} + @{Précision} + @{Furtivité} + @{EE} + @{AD} + @{Résistance} + @{Constitution} + @{Athlétisme} + @{CC} + @{MT} + @{Pilotage} + @{Médecine} + @{Séduction} + @{Intimidation} + @{Duperie} + @{Volonté}" disabled = true>
-    </td>
+    <tr>
+    <th>Total Points</th> 
+    <td><input type="number" name="attr_TotalPoint" value="@{Lucidité} + @{Négoce} + @{Survie} + @{Vigilence} + @{Bagarre} + @{Armes_C} + @{Escrime} + @{EP} + @{Artillerie} + @{Précision} + @{Furtivité} + @{EE} + @{AD} + @{Résistance} + @{Constitution} + @{Athlétisme} + @{CC} + @{MT} + @{Pilotage} + @{Médecine} + @{Séduction} + @{Intimidation} + @{Duperie} + @{Volonté}" disabled = true></td>
+    </tr>
                     <div class="sheet-col">
         </table>
     </div>
@@ -426,7 +427,13 @@
                 <input type="text" name="attr_WeaponDM" style ="width:100px"/>
             </td> 
             <td>
-                <input type="text" name="attr_WeaponPOR" style="width:75px"/>
+                <select name="attr_weaponrng" style="width:100px;margin-top:9px">
+                  <option value="1" selected="selected">Mêlée</option>
+                  <option value="2">Short Range</option>
+                  <option value="3">Mid Range</option>
+                  <option value="4">Long Range</option>
+                  <option value="5">Very Long Range</option>
+                </select>
             </td>
             <td>
                 <input type="text" name="attr_WeaponEffect" style ="width:100px"/>
@@ -454,7 +461,13 @@
                 <input type="text" name="attr_WeaponDM" style ="width:100px"/>
             </td> 
             <td>
-                <input type="text" name="attr_WeaponPOR" style="width:75px"/>
+                <select name="attr_weaponrng" style="width:100px;margin-top:9px">
+                  <option value="1" selected="selected">Mêlée</option>
+                  <option value="2">Short Range</option>
+                  <option value="3">Mid Range</option>
+                  <option value="4">Long Range</option>
+                  <option value="5">Very Long Range</option>
+                </select>
             </td>
             <td>
                 <input type="text" name="attr_WeaponEffect" style ="width:100px"/>
@@ -475,15 +488,15 @@
         <tr>
             <th>Encombrement</th>
 
-            <td><input type="number" name="attr_Current_Encumbrunce" style="width:75px" value="@{EncombrementTotal}" disabled = true/></td>
-            <td><input type="number" name="attr_Encumbrunce" style="width:75px" value="@{encumbrance_gear} + @{encumbrance_weapon}" disabled = true/></td>
+            <td><input type="number" name="attr_Current_Encumbrunce" style="width:50px" value="@{EncombrementTotal}" disabled = true/></td>
+            <td><input type="number" name="attr_Encumbrunce" style="width:50px" value="@{encumbrance_gear} +@{weaponwa} + @{encumbrance_weapon} + @{gearweight}" disabled = true/></td>
         </tr>
-            <tr>Poid Armes  <input type="number" name="attr_encumbrance_gear" disabled = true></tr>
-            <tr>Poid Objets <input type="number" name="attr_encumbrance_weapon" disabled = true/></tr>
-            <tr>
+            <tr>Poid Armes  <input type="number" name="attr_encumbrance_gear" hidden></tr>
+            <tr>Poid Objets <input type="number" name="attr_encumbrance_weapon" hidden/></tr>
+        <tr>
             <th>Drachmes </th>
             <td><input type="number" name="attr_Drachmes" style="width:75px"/></td>
-            </tr>
+         </tr>
         </table>
     </div>
     <div class="sheet-colrow">
@@ -496,14 +509,16 @@
          <tr>
              <td>Nom</td>
              <td>Notes</td>
+             <td>Charges</td>
              <td>Qte</td>
              <td>PDS</td>
          </tr>
          <tr>
              <td><input type="text" name="attr_gearname"/></td>
              <td><textarea name="attr_gearnotes" style="width:400px; height: 20px;"></textarea></td>
-             <td><input type="text" name="attr_gearnbr" style="width:75px;"/></td>
-             <td><input type="number" name="attr_gearweight" style="width:75px;"/></td>
+             <td><input type="text" name="attr_gearcha" style="width:75px;"/></td>
+             <td><input type="text" name="attr_gearnbr" style="width:50px;"/></td>
+             <td><input type="number" name="attr_gearweight" style="width:50px;"/></td>
          </tr>
      </table>
      <fieldset class="repeating_gear">
@@ -511,8 +526,9 @@
              <tr>
              <td><input type="text" name="attr_gearname"/></td>
              <td><textarea name="attr_gearnotes"style="width:400px; height: 20px;"></textarea></td>
-             <td><input type="text" name="attr_gearnbr" style="width:75px;"/></td>
-             <td><input type="number" name="attr_gearweight" style="width:75px;"/>
+             <td><input type="text" name="attr_gearcha" style="width:75px;"/></td>
+             <td><input type="text" name="attr_gearnbr" style="width:50px;"/></td>
+             <td><input type="number" name="attr_gearweight" style="width:50px;"/>
 
         </tr>
         </table>
@@ -572,7 +588,7 @@
                 <td><button type="roll" name="roll_CAPDAM" value="&{template:default} {{name=@{CAPName}}} {{Valeur=@{CAPDAM}}} {{Effet=@{CAPEffect}}} {{Portée=@{CAPRNG}}} {{Adrénaline=@{CAPCost}}}"
             </tr>
         </table>
-        <fieldset class="repeating_Spells">
+        <fieldset class="repeating_Cap">
             <table style="margin-top:0px; margin-bottom:0px;">
             <tr>
                 <td><input type="text" name="attr_CAPName"/></td>
@@ -829,7 +845,7 @@ const repeatingSum = (destinations, section, fields) => {
     }); 
 };
 on('change:repeating_gear remove:repeating_gear', function() {
-	repeatingSum("encumbrance_gear","gear",["gearweight","gearnbr"]);
+	repeatingSum("encumbrance_gear","gear",['gearweight','gearnbr']);
 });
 on('change:repeating_weapons:weaponwa remove:repeating_weapons ', function() {
 	repeatingSum("encumbrance_weapon","weapons","weaponwa");
